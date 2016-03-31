@@ -14,6 +14,10 @@ Features:
 
 --
 
+Demo: https://youtu.be/C38gep4vkm8?t=7m12s
+
+--
+
 Use the Faust Online Compiler to compile it as Standalone or Audio Plugin (LV2, VST, etc): http://faust.grame.fr/compiler/
 
 -- 
