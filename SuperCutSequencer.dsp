@@ -2,18 +2,15 @@ declare name        "SuperCutSequencer";
 declare version     "1.0";
 declare author      "Vincent Rateau";
 declare license     "GPL v3";
-declare reference   "www.sonejo.net";
+declare description	"Cut 'On/Off' Sequencer 8 steps with smooth) synced to Midi-Clock Beats and Midi-Clock Start/Stop";
 
-import("music.lib");
-import("oscillator.lib");
-import("filter.lib");
-import("math.lib");
-import("effect.lib");
+
+import("signal.lib");
 
 
 // Cut "On/Off" Sequencer 8 steps with smooth) synced to Midi-Clock Beats and Midi-Clock Start/Stop.
 
- 
+
 process = cutsequencer, cutsequencer;
 
 
@@ -40,12 +37,12 @@ with{
 	drywetgui = hslider("Dry/Wet[style:knob][midi: ctrl 52]", 0, 0, 1, 0.001) : s ;
 
 	//create par 8 with on/off checkboxes, send them sif (counter conditions)
-	cutseq(a,b,c,d,e,f,g,h) = (par(i,8, hgroup("[4]Step On/Off", stepmute(i + steppush, i + stepled))) :  sif)  : 		
+	cutseq(a,b,c,d,e,f,g,h) = (par(i,8, hgroup("[4]Step On/Off", stepmute(i + steppush, i + stepled))) :  sif)  :
 	hgroup("",result)  :  s*a, s*b, s*c, s*d, s*e, s*f, s*g, s*h ;
 
 	// checkboxes and bargraphs for each steps
-	stepmute(j, k) = checkbox("%j [midi: ctrl %j]")  :_*stepcolor : 
-	vbargraph("%k [style: led] [midi:ctrl %k]", 0, 127) : _/stepcolor 
+	stepmute(j, k) = checkbox("%j [midi: ctrl %j]")  :_*stepcolor :
+	vbargraph("%k [style: led] [midi:ctrl %k]", 0, 127) : _/stepcolor
 		with{
 			// midi out led color
 			stepcolor = nentry("step color", 66, 0, 127, 1);
@@ -57,7 +54,7 @@ with{
 	//interpTime = hslider("Interpolation Time (s)[style:knob]",0.05,0,1,0.001);
 
 
-	// sequ is the sequencer created by the midi clock. 
+	// sequ is the sequencer created by the midi clock.
 	// sif = if sequ == 0, play track 0. etc. trig (1) is activated for now with le lf pulsetrain
 
 	sif = par(i,8, _*(sequ==i));
@@ -86,12 +83,12 @@ with{
 		//sqwv =   lf_squarewavepos(frqslider) ; // : vbargraph("squarewave", 0, 1) ;
 		//frqslider = hslider("send sqwave / sec * 24", 1, 0, 10, 0.1)*24;
 
-	
+
 	// count 24 pulse and reset
 	midiclock =  sq2pulse : counter(24*scale) // : vbargraph("counter loop 24", 0, 30);
 	with{
 		// detect front, (create pulse from square wave)
-		sq2pulse(x)  = (x-x') != 0.0 ;      
+		sq2pulse(x)  = (x-x') != 0.0 ;
 
 		// scale the 8-step sequence
 		scale = vslider("[3]Sequencer Scaling[style:menu{'faster (1/4)':-2 ; 'fast (1/2)':-1 ; 'no scaling (1)':0 ; 'slow (2)':1 ; 'slower (4)':2}]",
@@ -110,7 +107,6 @@ with{
 		cond(n) = _ <: _, _ : ( _ < n) * _  :> _ * play ;
 
 		// Start / Stop button controlled with MIDI start/stop messages inside the loop (if stop then reset to 0)
-		play      = checkbox("[2]Sequence Start / Stop [midi:start] [midi:stop]");   
+		play      = checkbox("[2]Sequence Start / Stop [midi:start] [midi:stop]");
 	};
 };
- 
