@@ -6,7 +6,7 @@ Very useful i.e to add musical diversity in looped tracks (very nice with i.e ba
 --
 
 __Features:__
-* Cut your Stream in 8 Steps according to Midi-Clock (Start/Stop and Clock).
+* Cut your Stream in 8 Steps according to Midi-Clock (Start/Stop and Clock) or BPM Slider.
 * Mute or Unmute each Step separately
 * Dry/Wet Knob to switch between the original stream and the cut stream
 * Scale the Sequence between no scaling (1 bar), fast (1/2 bar), very fast (1/4 bar), slow (2 bars), very slow (4 bars)
@@ -19,8 +19,8 @@ Demo: https://youtu.be/C38gep4vkm8?t=7m12s
 --
 
 __Inputs/Outputs:__
-* Audio Outputs (L,R)
 * Audio Inputs (L,R)
+* Audio Outputs (L,R)
 * Midi Input: for Midi-Clock and External Controllers
 * Midi Output : for External Controller LED Lightning 
 
