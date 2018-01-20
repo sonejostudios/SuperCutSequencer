@@ -15,7 +15,7 @@ __Features:__
 Demo: https://youtu.be/C38gep4vkm8?t=7m12s
 
 --
-![screenshot](https://raw.githubusercontent.com/sonejostudios/SuperCutSequencer/master/SuperCutSequencer.png "SuperCutSequencer (JackQT)")
+![screenshot](https://raw.githubusercontent.com/sonejostudios/SuperCutSequencer/master/SuperCutSequencer1.2.png "SuperCutSequencer (JackQT)")
 --
 
 __Inputs/Outputs:__
