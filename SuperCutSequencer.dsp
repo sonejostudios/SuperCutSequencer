@@ -1,7 +1,8 @@
 declare name        "SuperCutSequencer";
-declare version     "1.0";
+declare version     "1.1";
 declare author      "Vincent Rateau";
 declare license     "GPL v3";
+declare reference   "www.sonejo.net";
 declare description	"Cut 'On/Off' Sequencer 8 steps with smooth) synced to Midi-Clock Beats and Midi-Clock Start/Stop";
 
 
